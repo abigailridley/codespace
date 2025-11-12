@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <div>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+    <div>
+      <div>Your choice: <span id="yourchoice"></span></div>
+      <div>Computer choice: <span id="computerchoice"></span></div>
+      <div>Result: <span id="result"></span></div>
+    </div>
+
+    <script>
+      const choices = ["rock", "paper", "scissors"];
+
+      document.getElementById("rock").addEventListener("click", () => {
+        yourchoice = "rock";
+        let computerchoice =
+          choices[Math.floor(Math.random() * choices.length)];
+        result = calcResults(yourchoice, computerchoice);
+        document.getElementById("yourchoice").innerText = yourchoice;
+        document.getElementById("computerchoice").innerText = computerchoice;
+        document.getElementById("result").innerText = result;
+      });
+      document.getElementById("scissors").addEventListener("click", () => {
+        yourchoice = "scissors";
+        let computerchoice =
+          choices[Math.floor(Math.random() * choices.length)];
+        result = calcResults(yourchoice, computerchoice);
+        document.getElementById("yourchoice").innerText = yourchoice;
+        document.getElementById("computerchoice").innerText = computerchoice;
+        document.getElementById("result").innerText = result;
+      });
+      document.getElementById("paper").addEventListener("click", () => {
+        yourchoice = "paper";
+        let computerchoice =
+          choices[Math.floor(Math.random() * choices.length)];
+        result = calcResults(yourchoice, computerchoice);
+        document.getElementById("yourchoice").innerText = yourchoice;
+        document.getElementById("computerchoice").innerText = computerchoice;
+        document.getElementById("result").innerText = result;
+      });
+
+      const calcResults = (yourchoice, computerchoice) => {
+        if (yourchoice === computerchoice) {
+          return "It's a draw!";
+        } else if (
+          (yourchoice === "rock" && computerchoice === "scissors") ||
+          (yourchoice === "paper" && computerchoice === "rock") ||
+          (yourchoice === "scissors" && computerchoice === "paper")
+        ) {
+          return "You win!";
+        } else {
+          return "You lose!";
+        }
+      };
+    </script>
+  </body>
+</html>

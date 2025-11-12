@@ -26,3 +26,72 @@ let isEven = (num) => {
 let isEven = (num) => num % 2 === 0;
 //Step 3
 let isEven = (num) => num % 2 === 0;
+
+//Q3 Convert the following JavaScript function declaration to arrow function syntax:
+
+//traditional function
+function counterFunc(counter) {
+  if (counter > 100) {
+    counter = 0;
+  } else {
+    counter++;
+  }
+
+  return counter;
+}
+
+//anon function
+let counterFunc = function (counter) {
+  if (counter > 100) {
+    counter = 0;
+  } else {
+    counter++;
+  }
+
+  return counter;
+};
+
+//Arrow
+//Step 1
+let counterFunc = (counter) => {
+  if (counter > 100) {
+    counter = 0;
+  } else {
+    counter++;
+  }
+
+  return counter;
+};
+
+//Q4 Write an arrow function for the following JavaScript function:
+
+//Traditional
+function nameAge(name, age) {
+  console.log("Hello " + name);
+  console.log("You are " + age + " years old");
+}
+//Arrow
+let nameAge = (name, age) => {
+  console.log("Hello " + name);
+  console.log("You are " + age + " years old");
+};
+
+//Q5 Write the arrow function for the following:
+
+//Trad
+function printOnly() {
+  console.log("printing");
+}
+
+//Arrow
+let printOnly = () => console.log("printing");
+
+//Q6 Write the arrow function for the following:
+
+//Trad
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+// Arrow
+let sum = (num1, num2) => num1 + num2;
