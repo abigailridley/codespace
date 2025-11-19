@@ -20,48 +20,80 @@
 
     <script>
       const choices = ["rock", "paper", "scissors"];
+      const rockBtn = document.getElementById("rock");
+      const paperBtn = document.getElementById("paper");
+      const scissorsBtn = document.getElementById("scissors");
 
-      document.getElementById("rock").addEventListener("click", () => {
-        yourchoice = "rock";
-        let computerchoice =
-          choices[Math.floor(Math.random() * choices.length)];
-        result = calcResults(yourchoice, computerchoice);
-        document.getElementById("yourchoice").innerText = yourchoice;
-        document.getElementById("computerchoice").innerText = computerchoice;
-        document.getElementById("result").innerText = result;
-      });
-      document.getElementById("scissors").addEventListener("click", () => {
-        yourchoice = "scissors";
-        let computerchoice =
-          choices[Math.floor(Math.random() * choices.length)];
-        result = calcResults(yourchoice, computerchoice);
-        document.getElementById("yourchoice").innerText = yourchoice;
-        document.getElementById("computerchoice").innerText = computerchoice;
-        document.getElementById("result").innerText = result;
-      });
-      document.getElementById("paper").addEventListener("click", () => {
-        yourchoice = "paper";
-        let computerchoice =
-          choices[Math.floor(Math.random() * choices.length)];
-        result = calcResults(yourchoice, computerchoice);
-        document.getElementById("yourchoice").innerText = yourchoice;
-        document.getElementById("computerchoice").innerText = computerchoice;
-        document.getElementById("result").innerText = result;
-      });
+      const yourChoiceSpan = document.getElementById("yourchoice");
+      const computerChoiceSpan = document.getElementById("computerchoice");
+      const resultSpan = document.getElementById("result");
 
-      const calcResults = (yourchoice, computerchoice) => {
+      rockBtn.addEventListener("click", () => calcResults(choices[0]));
+      paperBtn.addEventListener("click", () => calcResults(choices[1]));
+      scissorsBtn.addEventListener("click", () => calcResults(choices[2]));
+
+      const calcResults = (userChoice) => {
+        let computerchoice =
+          choices[Math.floor(Math.random() * choices.length)];
+
+        yourChoiceSpan.innerText = userChoice;
+        computerChoiceSpan.innerText = computerchoice;
+        resultSpan.innerText = result;
+
         if (yourchoice === computerchoice) {
-          return "It's a draw!";
+          resultSpan.innerText = "It's a draw!";
         } else if (
           (yourchoice === "rock" && computerchoice === "scissors") ||
           (yourchoice === "paper" && computerchoice === "rock") ||
           (yourchoice === "scissors" && computerchoice === "paper")
         ) {
-          return "You win!";
+          resultSpan.innerText = "You win!";
         } else {
-          return "You lose!";
+          resultSpan.innerText = "You lose!";
         }
       };
+
+      // rockBtn.addEventListener("click", () => {
+      //   yourchoice = "rock";
+      //   let computerchoice =
+      //     choices[Math.floor(Math.random() * choices.length)];
+      //   result = calcResults(yourchoice, computerchoice);
+      //   yourChoiceSpan.innerText = yourchoice;
+      //   computerChoiceSpan.innerText = computerchoice;
+      //   resultSpan.innerText = result;
+      // });
+      // scissorsBtn.addEventListener("click", () => {
+      //   yourchoice = "scissors";
+      //   let computerchoice =
+      //     choices[Math.floor(Math.random() * choices.length)];
+      //   result = calcResults(yourchoice, computerchoice);
+      //   yourChoiceSpan.innerText = yourchoice;
+      //   computerChoiceSpan.innerText = computerchoice;
+      //   resultSpan.innerText = result;
+      // });
+      // paperBtn.addEventListener("click", () => {
+      //   yourchoice = "paper";
+      //   let computerchoice =
+      //     choices[Math.floor(Math.random() * choices.length)];
+      //   result = calcResults(yourchoice, computerchoice);
+      //   yourChoiceSpan.innerText = yourchoice;
+      //   computerChoiceSpan.innerText = computerchoice;
+      //   resultSpan.innerText = result;
+      // });
+
+      // const calcResults = (yourchoice, computerchoice) => {
+      //   if (yourchoice === computerchoice) {
+      //     return "It's a draw!";
+      //   } else if (
+      //     (yourchoice === "rock" && computerchoice === "scissors") ||
+      //     (yourchoice === "paper" && computerchoice === "rock") ||
+      //     (yourchoice === "scissors" && computerchoice === "paper")
+      //   ) {
+      //     return "You win!";
+      //   } else {
+      //     return "You lose!";
+      //   }
+      // };
     </script>
   </body>
 </html>
