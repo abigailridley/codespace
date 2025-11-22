@@ -104,39 +104,77 @@
 // Each child class will include their own version of a method that calculates a user's score
 // Both classes must have a method called calcScores(), but the score calculation will be different in each class.
 
-class User {
-  constructor() {
-    this.numberOfArticles = 0;
-  }
-  setNumberOfArticles(int) {
-    this.numberOfArticles = int;
-  }
-  getNumberOfArticles() {
-    return this.numberOfArticles;
-  }
-  calcScores() {
-    return 0;
-  }
-}
+// class User {
+//   constructor() {
+//     this.numberOfArticles = 0;
+//   }
+//   setNumberOfArticles(int) {
+//     this.numberOfArticles = int;
+//   }
+//   getNumberOfArticles() {
+//     return this.numberOfArticles;
+//   }
+//   calcScores() {
+//     return 0;
+//   }
+// }
 
-class Author extends User {
-  calcScores() {
-    console.log(this.numberOfArticles * 10 + 20);
-  }
-}
+// class Author extends User {
+//   calcScores() {
+//     console.log(this.numberOfArticles * 10 + 20);
+//   }
+// }
 
-class Editor extends User {
-  calcScores() {
-    console.log(this.numberOfArticles * 6 + 15);
-  }
-}
+// class Editor extends User {
+//   calcScores() {
+//     console.log(this.numberOfArticles * 6 + 15);
+//   }
+// }
 
-const author = new Author();
-author.setNumberOfArticles(8);
-author.calcScores();
+// const author = new Author();
+// author.setNumberOfArticles(8);
+// author.calcScores();
 
-const editor = new Editor();
-editor.setNumberOfArticles(15);
-editor.calcScores();
+// const editor = new Editor();
+// editor.setNumberOfArticles(15);
+// editor.calcScores();
 
 //Coding Task 5 - Abstraction
+// In this task , we will create an abstract User class and two child classes (Admin and Viewer classes) that inherit from the abstract class.
+class User {
+  constructor(username) {
+    this.username = username;
+  }
+
+  getusername() {
+    return this.username;
+  }
+  setusername(username) {
+    this.username = username;
+  }
+  stateYourRole() {
+    return "";
+  }
+}
+
+class Admin extends User {
+  stateYourRole() {
+    return "admin";
+  }
+}
+
+class Viewer extends User {
+  stateYourRole() {
+    return "viewer";
+  }
+}
+
+const admin = new Admin();
+admin.setusername("Balzathar");
+console.log(admin.username);
+console.log(admin.stateYourRole());
+
+const viewer = new Viewer();
+viewer.setusername("Melchior");
+console.log(viewer.username);
+console.log(viewer.stateYourRole());
