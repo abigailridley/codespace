@@ -18,6 +18,7 @@
 // const user2 = new User("Jane", "Doe");
 
 // user1.greet();
+// user2.greet();
 
 //Coding Task 2 - Encapsulation
 // Add the getters and setters methods after the class constructor.
@@ -108,12 +109,13 @@
 //   constructor() {
 //     this.numberOfArticles = 0;
 //   }
-//   setNumberOfArticles(int) {
-//     this.numberOfArticles = int;
-//   }
 //   getNumberOfArticles() {
 //     return this.numberOfArticles;
 //   }
+//   setNumberOfArticles(int) {
+//     this.numberOfArticles = int;
+//   }
+
 //   calcScores() {
 //     return 0;
 //   }
@@ -139,7 +141,7 @@
 // editor.setNumberOfArticles(15);
 // editor.calcScores();
 
-//Coding Task 5 - Abstraction
+// Coding Task 5 - Abstraction
 // In this task , we will create an abstract User class and two child classes (Admin and Viewer classes) that inherit from the abstract class.
 class User {
   constructor(username) {
