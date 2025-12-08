@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <h1>Rock Paper Scissors</h1>
+    <div>
+      <button id="rock">Rock</button>
+      <button id="paper">Paper</button>
+      <button id="scissors">Scissors</button>
+    </div>
+    <div>
+      <div>Your choice: <span id="yourchoice"></span></div>
+      <div>Computer choice: <span id="computerchoice"></span></div>
+      <div>Result: <span id="result"></span></div>
+    </div>
+
+    <script>
+      const choices = ["rock", "paper", "scissors"];
+      const rockBtn = document.getElementById("rock");
+      const paperBtn = document.getElementById("paper");
+      const scissorsBtn = document.getElementById("scissors");
+
+      const yourChoiceSpan = document.getElementById("yourchoice");
+      const computerChoiceSpan = document.getElementById("computerchoice");
+      const resultSpan = document.getElementById("result");
+
+      const calcResults = (userChoice) => {
+        const computerChoice =
+          choices[Math.floor(Math.random() * choices.length)];
+
+        yourChoiceSpan.innerText = userChoice;
+        computerChoiceSpan.innerText = computerChoice;
+
+        let resultText = "";
+
+        if (userChoice === computerChoice) {
+          resultText = "It's a draw!";
+        } else if (
+          (userChoice === "rock" && computerChoice === "scissors") ||
+          (userChoice === "paper" && computerChoice === "rock") ||
+          (userChoice === "scissors" && computerChoice === "paper")
+        ) {
+          resultText = "You win!";
+        } else {
+          resultText = "You lose!";
+        }
+
+        resultSpan.innerText = resultText;
+      };
+
+      rockBtn.addEventListener("click", () => calcResults("rock"));
+      paperBtn.addEventListener("click", () => calcResults("paper"));
+      scissorsBtn.addEventListener("click", () => calcResults("scissors"));
+    </script>
+  </body>
+</html>
